@@ -9,6 +9,7 @@ namespace PageObject
         [TestMethod]
         public void TestMethod1()
         {
+            Console.WriteLine("Hihihi");
         }
     }
 }
