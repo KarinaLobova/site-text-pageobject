@@ -13,11 +13,17 @@ namespace PageObject
     {
         public IWebDriver driver { get; set; }
         public WebDriverWait wait { get; set; }
+        ChromeOptions opt = new ChromeOptions();
+        
 
         [TestInitialize]
         public void SetupTest()
         {
-            this.driver = new ChromeDriver();
+            var service = ChromeDriverService.CreateDefaultService(@"C:\Users\Karina\Desktop\PageObject");
+            service.LogPath = "ChromeDriver.log";
+            service.EnableVerboseLogging = true;
+
+            this.driver = new ChromeDriver(service,opt);
             this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
         }
         [TestCleanup]
