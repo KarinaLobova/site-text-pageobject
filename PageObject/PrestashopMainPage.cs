@@ -26,7 +26,23 @@ namespace PageObject
         public void Navigate()
         {
             this.driver.Navigate().GoToUrl(url);
-            Console.WriteLine("Site is opened");
+            Console.WriteLine("1.Открыта главная страица сайта");
+        }
+        public IWebElement SearchElement(string xpath)
+        {
+            return driver.FindElement(By.XPath(xpath));
+        }
+        public IList<IWebElement> SearchElementsByXpath(string xpath)
+        {
+            return driver.FindElements(By.XPath(xpath));
+        }
+        public IList<IWebElement> SearchElementsByClass(string xpath)
+        {
+            return driver.FindElements(By.ClassName(xpath));
+        }
+        public void ClickElement(string xpath)
+        {
+            SearchElement(xpath).Click();
         }
     }
 }
